@@ -17,6 +17,7 @@
 
   /* Font size */
   --font-large: 48px;
+  --font-medium-large: 38px;
   --font-medium: 28px;
   --font-regular: 18px;
   --font-small: 16px;
@@ -95,6 +96,12 @@ p {
 .navbar__logo {
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
+  font-family: 'Lobster', cursive;
+}
+
+.navbar__logo a {
+  font-family: 'Lobster', cursive;
+  font-size: var(--font-medium-large);
 }
 
 .navbar__menu {
