@@ -10,10 +10,12 @@
   --color-dark-grey: #4d4d4d;
   --color-grey: #616161;
   --color-light-grey: #7c7979;
-  --color-blue: #73aace;
-  --color-yellow: #fff7d1;
+  --color-light-orange: #ffc046;
   --color-orange: #ff8f00;
   --color-black: #000000;
+  --color-red: #dd2c00;
+  --color-yellow: #ffd600;
+  --color-blue: #0091ea;
 
   /* Font size */
   --font-large: 48px;
@@ -31,9 +33,13 @@
   /* Size */
   --size-border-radius: 4px;
   --size-avatar: 300px;
+  --size-major: 250px;
+  --size-major-icon-outline: 170px;
+  --size-major-icon: 70px;
+  --size-base-space: 16px;
 
   /* Animation */
-  --animation-duration: 400ms;
+  --animation-duration: 300ms;
 }
 
 /* Universal tags */
@@ -54,6 +60,13 @@ a {
 ul {
   list-style: none;
   padding-left: 0;
+}
+
+section:not(#home) {
+  text-align: center;
+  padding: 50px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 /* Typography */
@@ -149,7 +162,7 @@ button {
 #home {
   background: url('imgs/home-background.png') center/cover no-repeat;
   text-align: center;
-  padding: 40px;
+  padding: 50px;
 }
 
 .home__avatar {
@@ -182,4 +195,89 @@ button {
 
 .home__contact:hover {
   background-color: var(--color-light-grey);
+}
+
+/* About */
+
+.about__majors {
+  display: flex;
+  justify-content: space-between;
+  margin: 60px 0;
+}
+
+.major {
+  width: var(--size-major);
+}
+
+.major__icon {
+  width: var(--size-major-icon-outline);
+  height: var(--size-major-icon-outline);
+  border: 1px solid;
+  border-radius: 50%;
+  font-size: var(--size-major-icon);
+  line-height: var(--size-major-icon-outline);
+  margin: auto;
+  cursor: pointer;
+}
+
+.major__icon,
+.major__title,
+.major__description {
+  color: var(--color-dark-grey);
+}
+
+.major h2 {
+  transition: all var(--animation-duration) ease;
+}
+
+.major__icon:hover i {
+  transform: rotate(-30deg) scale(1.1);
+}
+
+.major__icon i {
+  transition: all var(--animation-duration) ease;
+}
+
+/* .html:hover {
+  color: var(--color-red);
+} */
+
+.html:hover,
+.html:hover ~ h2 {
+  color: var(--color-red);
+}
+
+.css:hover,
+.css:hover ~ h2 {
+  color: var(--color-blue);
+}
+
+.javascript:hover,
+.javascript:hover ~ h2 {
+  color: var(--color-yellow);
+}
+
+.job {
+  display: flex;
+  align-items: center;
+  margin: var(--size-base-space) 0;
+}
+
+.job__logo {
+  width: var(--size-major-icon);
+  height: var(--size-major-icon);
+}
+
+.job__description {
+  text-align: left;
+  margin: 0 var(--size-base-space);
+}
+
+.job__name,
+.job__period {
+  color: var(--color-light-grey);
+}
+
+.job__period {
+  font-size: var(--font-micro);
 }
