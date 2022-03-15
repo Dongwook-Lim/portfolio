@@ -499,3 +499,40 @@ button {
   color: var(--color-green);
   font-weight: var(--weight-semi-bold);
 }
+
+/* Contact */
+
+#contact {
+  background-color: var(--color-dark-green);
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__title {
+  margin: 32px 0;
+}
+
+.contact__title,
+.contact__email,
+.contact__rights {
+  color: var(--color-light-white);
+}
+
+.contact__links {
+  font-size: 50px;
+  margin: 24px 0;
+}
+
+.contact__links i {
+  padding: 8px;
+  transition: all var(--animation-duration) ease;
+  color: white;
+}
+
+.contact__links i:hover {
+  transform: scale(1.1) rotate(30deg);
+}
+
+.contact__rights {
+  margin-top: 35px;
+}
