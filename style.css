@@ -113,12 +113,15 @@ button {
 /* Navbar */
 
 #navbar {
+  position: fixed;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: var(--color-green);
+  justify-content: space-between;
+  background-color: transparent;
   color: var(--color-white);
-  padding: 16px;
+  padding: 12px;
+  transition: all var(--animation-duration) ease-in-out;
 }
 
 .navbar__logo {
@@ -126,6 +129,7 @@ button {
   font-weight: var(--weight-semi-bold);
   font-family: 'Lobster', cursive;
   margin-left: 10px;
+  padding: 8px 8px 12px 8px;
 }
 
 .navbar__logo a {
@@ -139,6 +143,7 @@ button {
 
 .navbar__menu {
   display: flex;
+  margin: auto 0;
 }
 
 .navbar__menu__item {
@@ -170,17 +175,22 @@ button {
 }
 
 .navbar__toggle-btn {
-  font-size: 24px;
+  font-size: 30px;
   position: absolute;
   top: 25px;
   right: 30px;
   display: none;
 }
 
+#navbar.navbar--dark {
+  background-color: var(--color-green);
+}
+
 /* Home */
 
 #home {
   background: url('imgs/home-background.png') center/cover no-repeat;
+  padding-top: 150px;
 }
 
 .home__avatar {
@@ -212,8 +222,9 @@ button {
 }
 
 .home__contact:hover {
-  background-color: var(--color-dark-grey);
+  background-color: var(--color-orange);
   transform: scale(1.1);
+  border: 1px solid var(--color-orange);
 }
 
 /* About */
@@ -535,6 +546,7 @@ button {
 
 .contact__links i:hover {
   transform: scale(1.1) rotate(30deg);
+  color: var(--color-orange);
 }
 
 .contact__rights {
@@ -580,5 +592,11 @@ button {
   .testimonial__avatar {
     width: 100px;
     height: 100px;
+  }
+}
+
+@media screen and (max-width: 900px) and (min-width: 768px) {
+  .work__projects {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
