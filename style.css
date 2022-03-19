@@ -169,6 +169,14 @@ button {
   transform: rotate(-122deg) translateY(-4px);
 }
 
+.navbar__toggle-btn {
+  font-size: 24px;
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  display: none;
+}
+
 /* Home */
 
 #home {
@@ -248,10 +256,6 @@ button {
 .major__icon i {
   transition: all var(--animation-duration) ease;
 }
-
-/* .html:hover {
-  color: var(--color-red);
-} */
 
 .html:hover,
 .html:hover ~ h2 {
@@ -535,4 +539,46 @@ button {
 
 .contact__rights {
   margin-top: 35px;
+}
+
+/* For below 768px screen width */
+
+@media screen and (max-width: 768px) {
+  .navbar__toggle-btn {
+    display: block;
+  }
+
+  #navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar__menu {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    display: none;
+  }
+
+  .about__majors {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .major {
+    margin-bottom: 40px;
+  }
+
+  .skillset {
+    flex-direction: column;
+  }
+
+  .work__projects {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial__avatar {
+    width: 100px;
+    height: 100px;
+  }
 }
