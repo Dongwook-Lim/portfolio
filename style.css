@@ -44,8 +44,10 @@
 }
 
 /* Universal tags */
+
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -122,6 +124,7 @@ button {
   color: var(--color-white);
   padding: 12px;
   transition: all var(--animation-duration) ease-in-out;
+  z-index: 1;
 }
 
 .navbar__logo {
@@ -163,7 +166,7 @@ button {
 }
 
 .navbar__menu__item:hover {
-  background-color: var(--color-dark-green);
+  background-color: var(--color-green);
 }
 
 .navbar__logo:hover {
@@ -183,7 +186,7 @@ button {
 }
 
 #navbar.navbar--dark {
-  background-color: var(--color-green);
+  background-color: var(--color-dark-green);
 }
 
 /* Home */
@@ -314,10 +317,6 @@ button {
   background-color: var(--color-light-orange);
 }
 
-#skills h2 {
-  opacity: 0.8;
-}
-
 .skillset {
   display: flex;
   background-color: var(--color-light-grey);
@@ -439,20 +438,22 @@ button {
 
 .project__description {
   position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  background-color: var(--color-light-white);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: translateY(10px);
   opacity: 0;
   transition: all var(--animation-duration) ease;
 }
 
-.project:hover .project__img {
-  opacity: 0.1;
-}
-
 .project:hover .project__description {
-  opacity: 1;
-  top: 50%;
+  opacity: 0.8;
+  transform: translateY(0);
 }
 
 /* Testimonial */
@@ -595,7 +596,7 @@ button {
   }
 }
 
-@media screen and (max-width: 900px) and (min-width: 768px) {
+@media screen and (max-width: 1000px) and (min-width: 768px) {
   .work__projects {
     grid-template-columns: repeat(2, 1fr);
   }
