@@ -49,3 +49,13 @@ const navbarLogo = document.querySelector('.navbar__logo');
 navbarLogo.addEventListener('click', () => {
   scrollIntoView('#home');
 });
+
+// Make home slowly fade to transparent when the window scrolls down
+
+const home = document.querySelector('.home__container');
+const homeHeight = home.getBoundingClientRect().height;
+
+document.addEventListener('scroll', () => {
+  const scrolledHeight = window.scrollY;
+  home.style.opacity = 1 - scrolledHeight / homeHeight;
+});
