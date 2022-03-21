@@ -33,3 +33,19 @@ navbarMenu.addEventListener('click', (event) => {
 
   scrollIntoView(link);
 });
+
+// Handle click on "contact me" button on home
+
+const homeContactBtn = document.querySelector('.home__contact');
+
+homeContactBtn.addEventListener('click', () => {
+  scrollIntoView('#contact');
+});
+
+// Handle click on logo on navbar
+
+const navbarLogo = document.querySelector('.navbar__logo');
+
+navbarLogo.addEventListener('click', () => {
+  scrollIntoView('#home');
+});
