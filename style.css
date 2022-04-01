@@ -408,12 +408,12 @@ button {
 }
 
 .category__btn:hover,
-.category__btn.active {
+.category__btn.selected {
   background-color: var(--color-dark-green);
   color: var(--color-white);
 }
 
-.category__btn.active .category__count,
+.category__btn.selected .category__count,
 .category__btn:hover .category__count {
   opacity: 1;
   top: -1px;
@@ -423,11 +423,22 @@ button {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
+  opacity: 1;
+  transition: all var(--animation-duration) ease-out;
+}
+
+.work__projects.anim-out {
+  opacity: 0;
+  transform: scale(0.96) translateY(40px);
 }
 
 .project {
   margin: 2px;
   position: relative;
+}
+
+.project.invisible {
+  display: none;
 }
 
 .project__img {

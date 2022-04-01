@@ -20,7 +20,6 @@ const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (event) => {
   const dataset = event.target.dataset;
   const link = dataset.link;
-  console.log(link);
 
   if (link == null) {
     return;
@@ -71,6 +70,43 @@ document.addEventListener('scroll', () => {
 arrowUpBtn.addEventListener('click', () => {
   scrollIntoView('#home');
 });
+
+// Projects
+
+const categoryBtnContainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project');
+
+categoryBtnContainer.addEventListener('click', (event) => {
+  const filter =
+    event.target.dataset.filter || event.target.parentNode.dataset.filter;
+  if (filter == null) {
+    return;
+  }
+
+  //Remove selection from the previous item and select the new one
+
+  const active = document.querySelector('.category__btn.selected');
+  active.classList.remove('selected');
+  const target =
+    event.target.nodeName === 'BUTTON' ? event.target : event.target.parentNode;
+  target.classList.add('selected');
+
+  projectContainer.classList.add('anim-out');
+
+  setTimeout(() => {
+    projectContainer.classList.remove('anim-out');
+    projects.forEach((project) => {
+      if (filter === 'all' || filter === project.dataset.type) {
+        project.classList.remove('invisible');
+      } else {
+        project.classList.add('invisible');
+      }
+    });
+  }, 300);
+});
+
+// Active 'category buttons'
 
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
