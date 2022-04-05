@@ -18,13 +18,14 @@ document.addEventListener('scroll', () => {
 const navbarMenu = document.querySelector('.navbar__menu');
 
 navbarMenu.addEventListener('click', (event) => {
-  const dataset = event.target.dataset;
-  const link = dataset.link;
+  const target = event.target;
+  const link = target.dataset.link;
 
   if (link == null) {
     return;
   }
 
+  // Remove the toggle menu bar when clicked
   navbarMenu.classList.remove('open');
 
   scrollIntoView(link);
@@ -43,7 +44,7 @@ navbarToggleBtn.addEventListener('click', () => {
 const homeContactBtn = document.querySelector('.home__contact');
 
 homeContactBtn.addEventListener('click', () => {
-  scrollIntoView('#contact');
+  scrollIntoView('contact');
 });
 
 // Handle click on logo on navbar
@@ -51,7 +52,7 @@ homeContactBtn.addEventListener('click', () => {
 const navbarLogo = document.querySelector('.navbar__logo');
 
 navbarLogo.addEventListener('click', () => {
-  scrollIntoView('#home');
+  scrollIntoView('home');
 });
 
 // Make home slowly fade to transparent when the window scrolls down
@@ -78,7 +79,7 @@ document.addEventListener('scroll', () => {
 // Handle click on the "arrow up" button
 
 arrowUpBtn.addEventListener('click', () => {
-  scrollIntoView('#home');
+  scrollIntoView('home');
 });
 
 // Projects
@@ -94,14 +95,6 @@ categoryBtnContainer.addEventListener('click', (event) => {
     return;
   }
 
-  //Remove selection from the previous item and select the new one
-
-  const active = document.querySelector('.category__btn.selected');
-  active.classList.remove('selected');
-  const target =
-    event.target.nodeName === 'BUTTON' ? event.target : event.target.parentNode;
-  target.classList.add('selected');
-
   projectContainer.classList.add('anim-out');
 
   setTimeout(() => {
@@ -114,9 +107,75 @@ categoryBtnContainer.addEventListener('click', (event) => {
       }
     });
   }, 300);
+
+  // Remove selection from the previous item and select the new one
+
+  const active = document.querySelector('.category__btn.selected');
+  active.classList.remove('selected');
+  const target =
+    event.target.nodeName === 'BUTTON' ? event.target : event.target.parentNode;
+  target.classList.add('selected');
 });
 
-function scrollIntoView(selector) {
-  const scrollTo = document.querySelector(selector);
-  scrollTo.scrollIntoView();
+// Active selected menu item when scrolled to specific section
+// 1. 모든 섹션 요소들과 메뉴아이템들을 가지고 온다
+// 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다
+// 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다
+
+const sections = document.querySelectorAll('section');
+const menuItems = document.querySelectorAll('.navbar__menu__item');
+
+let selectedSectionId;
+
+function selectMenuItem(selector) {
+  menuItems.forEach((item) => {
+    if (item.dataset.link === selector) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
 }
+
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(`#${selector}`);
+  scrollTo.scrollIntoView();
+  selectMenuItem(selector);
+}
+
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.3,
+};
+
+const observerCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+      if (entry.boundingClientRect.y < 0) {
+        selectedSectionId = entry.target.nextElementSibling.id;
+      } else {
+        selectedSectionId = entry.target.previousElementSibling.id;
+      }
+    } else {
+      return;
+    }
+  });
+};
+
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+sections.forEach((section) => observer.observe(section));
+
+window.addEventListener('wheel', (event) => {
+  if (window.scrollY === 0) {
+    selectedSectionId = 'home';
+  } else if (
+    Math.round(window.scrollY + window.innerHeight) ===
+    document.body.clientHeight
+  ) {
+    selectedSectionId = 'contact';
+  }
+
+  selectMenuItem(selectedSectionId);
+});
