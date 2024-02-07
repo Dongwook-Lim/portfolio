@@ -11,12 +11,16 @@
     />
     <meta name="author" content="Dongwook" />
     <link rel="icon" type="image/ico" href="imgs/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://kit.fontawesome.com/74be4b0a70.js"
       crossorigin="anonymous"
     ></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -26,15 +30,14 @@
     <!-- Navbar -->
     <nav id="navbar">
       <div class="navbar__logo">
-        <i class="fa-solid fa-mountain"></i>
-        <a href="#">Leon</a>
+        <a href="#">Leon.dev</a>
       </div>
       <ul class="navbar__menu">
         <li class="navbar__menu__item active" data-link="home">Home</li>
         <li class="navbar__menu__item" data-link="about">About</li>
-        <li class="navbar__menu__item" data-link="skills">Skills</li>
-        <li class="navbar__menu__item" data-link="work">My Work</li>
-        <li class="navbar__menu__item" data-link="testimonial">Testimonial</li>
+        <!-- <li class="navbar__menu__item" data-link="skills">Skills</li> -->
+        <li class="navbar__menu__item" data-link="work">Projects</li>
+        <!-- <li class="navbar__menu__item" data-link="testimonial">Testimonial</li> -->
         <li class="navbar__menu__item" data-link="contact">Contact</li>
       </ul>
 
@@ -52,11 +55,41 @@
           alt="Leon's profile photo"
           class="home__avatar"
         />
-        <h1 class="home__title">Hello, <br />I'm Leon</h1>
-        <h2 class="home__description">
-          A Full-stack Developer who can Design.
-        </h2>
-        <button class="home__contact">CONTACT ME</button>
+        <div class="home__content">
+          <h1 class="home__title">Front-end Web <br />Developer 💪🏽</h1>
+          <h3 class="home__description">
+            Hi, I'm Leon Lim. A Front-end Web Developer who is passionate about
+            design. 🎨
+          </h3>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="home__github-icon"
+          >
+            <path
+              d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      <div class="home__tech-stack">
+        <h3>Tech Stack</h3>
+        <div class="tech-stack-box">
+          <img src="https://skillicons.dev/icons?i=html" alt="skill-icon" />
+          <img src="https://skillicons.dev/icons?i=css,scss" alt="skill-icon" />
+          <img
+            src="https://skillicons.dev/icons?i=javascript"
+            alt="skill-icon"
+          />
+          <img src="https://skillicons.dev/icons?i=git" alt="skill-icon" />
+        </div>
       </div>
     </section>
 
@@ -129,7 +162,7 @@
     </section>
 
     <!-- Skills -->
-    <section id="skills">
+    <!-- <section id="skills">
       <div class="section__container">
         <h1>Skills</h1>
         <h2>Skills & Attributes</h2>
@@ -199,12 +232,11 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <!-- Work -->
+    <!-- Works -->
     <section id="work" class="section__container">
-      <h1>My work</h1>
-      <h3>Projects</h3>
+      <h1>Projects</h1>
       <div class="work__categories">
         <button class="category__btn selected" data-filter="all">
           All<span class="category__count">8</span>
@@ -370,7 +402,7 @@
     </section>
 
     <!-- Testimonial -->
-    <section id="testimonial">
+    <!-- <section id="testimonial">
       <div class="section__container">
         <h1>Testimonials</h1>
         <h3>See what they say about me</h3>
@@ -407,7 +439,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Contact -->
     <section id="contact">

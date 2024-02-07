@@ -3,33 +3,33 @@
 :root {
   /* Color */
   --color-white: #ffffff;
-  --color-light-white: #eeeeee;
+  --color-light-white: #f9f9f9;
+  --color-medium-white: #e2e0e0;
   --color-dark-white: #bdbdbd;
-  --color-green: #00897b;
-  --color-dark-green: #005b4f;
+
+  --color-black: #2d2e32;
   --color-dark-grey: #4d4d4d;
   --color-grey: #616161;
   --color-light-grey: #7c7979;
-  --color-light-orange: #ffc046;
-  --color-orange: #ff8f00;
-  --color-dark-orange: #c56000;
-  --color-black: #000000;
+
+  --color-theme: #596187;
+
   --color-red: #dd2c00;
   --color-yellow: #ffd600;
   --color-blue: #0091ea;
 
   /* Font size */
-  --font-large: 48px;
-  --font-medium-large: 38px;
-  --font-medium: 28px;
-  --font-regular: 18px;
-  --font-small: 16px;
-  --font-micro: 14px;
+  --font-large: 3.5rem;
+  --font-medium-large: 2rem;
+  --font-medium: 1.5rem;
+  --font-regular: 1.2rem;
+  --font-small: 1rem;
+  --font-micro: 0.8rem;
 
   /* Font weight */
-  --weight-bold: 700;
+  --weight-bold: 800;
   --weight-semi-bold: 600;
-  --weight-regular: 400;
+  --weight-regular: 300;
 
   /* Size */
   --size-border-radius: 4px;
@@ -52,12 +52,12 @@
 
 body {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
   text-decoration: none;
-  color: var(--color-white);
+  color: var(--color-black);
 }
 
 ul {
@@ -81,6 +81,7 @@ section {
 h1 {
   font-size: var(--font-large);
   font-weight: var(--weight-bold);
+  line-height: 100%;
   color: var(--color-black);
   margin: 16px 0;
 }
@@ -116,33 +117,23 @@ button {
 /* Navbar */
 
 #navbar {
+  background-color: var(--color-white);
+  box-shadow: 0 0 15px var(--color-dark-white);
   position: fixed;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: transparent;
-  color: var(--color-white);
-  padding: 12px;
+  padding: 5px 30px;
   transition: all var(--animation-duration) ease-in-out;
   z-index: 1;
 }
 
 .navbar__logo {
   font-size: var(--font-medium);
-  font-weight: var(--weight-semi-bold);
-  font-family: 'Lobster', cursive;
+  font-weight: var(--weight-bold);
   margin-left: 10px;
   padding: 8px 8px 12px 8px;
-}
-
-.navbar__logo a {
-  font-family: 'Lobster', cursive;
-  font-size: var(--font-medium-large);
-}
-
-.navbar__logo i {
-  transition: all var(--animation-duration) ease;
 }
 
 .navbar__menu {
@@ -150,35 +141,29 @@ button {
 }
 
 .navbar__menu__item {
+  font-size: var(--font-small);
+  font-weight: var(--weight-semi-bold);
   padding: 8px 12px;
   margin: 0 4px;
   border-radius: var(--size-border-radius);
 }
 
 .navbar__menu__item,
-.navbar__logo {
+.navbar__logo a {
   transition: all var(--animation-duration) ease;
 }
 
-.navbar__menu__item:hover,
-.navbar__logo:hover {
-  cursor: pointer;
+.navbar__logo a:hover {
+  color: var(--color-theme);
 }
 
 .navbar__menu__item:hover {
-  background-color: var(--color-green);
+  transform: translateY(-8px);
+  cursor: pointer;
 }
 
 .navbar__menu__item.active {
-  background-color: var(--color-green);
-}
-
-.navbar__logo:hover {
-  transform: scale(1.1);
-}
-
-.navbar__logo:hover i {
-  transform: rotate(-122deg) translateY(-4px);
+  transform: translateY(-8px);
 }
 
 .navbar__toggle-btn {
@@ -197,52 +182,84 @@ button {
   cursor: pointer;
 }
 
-#navbar.navbar--dark {
-  background-color: var(--color-dark-green);
-}
-
 /* Home */
 
 #home {
-  background: url('imgs/home-background.png') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-light-white);
   padding-top: 150px;
+  height: 100vh;
+}
+
+.home__container {
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .home__avatar {
+  background-color: var(--color-dark-grey);
   width: var(--size-avatar);
   height: var(--size-avatar);
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid var(--color-light-white);
+  border: 3px solid var(--color-black);
+}
+
+.home__content {
+  width: 500px;
+  text-align: left;
 }
 
 .home__title,
-.home__description,
-.home__contact {
-  color: var(--color-white);
+.home__description {
+  margin-bottom: 30px;
 }
 
-.home__title {
-  text-align: center;
-}
-
-.home__contact {
-  font-size: var(--font-small);
-  border: 1px solid var(--color-white);
-  padding: 8px 12px;
-  margin-top: 24px;
-  border-radius: var(--size-border-radius);
-  font-weight: var(--weight-semi-bold);
+.home__github-icon {
   transition: all var(--animation-duration) ease;
 }
 
-.home__contact:hover {
-  background-color: var(--color-orange);
-  transform: scale(1.1);
-  border: 1px solid var(--color-orange);
+.home__github-icon:hover {
+  cursor: pointer;
+  color: var(--color-theme);
+}
+
+.home__tech-stack {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__tech-stack h3 {
+  border-right: 2px solid var(--color-light-grey);
+  padding-right: 30px;
+  height: 30px;
+}
+
+.tech-stack-box {
+  margin-left: 50px;
+}
+
+.tech-stack-box img {
+  transition: all var(--animation-duration) ease;
+  padding: 15px;
+}
+
+.tech-stack-box img:hover {
+  transform: translateY(-10px);
+  cursor: pointer;
 }
 
 /* About */
+
+#about {
+  background-color: var(--color-white);
+}
 
 .about__majors {
   display: flex;
@@ -326,7 +343,7 @@ button {
 /* Skills */
 
 #skills {
-  background-color: var(--color-light-orange);
+  background-color: var(--color-light-white);
 }
 
 .skillset {
@@ -381,6 +398,10 @@ button {
 }
 
 /* Work */
+
+#work {
+  background-color: var(--color-light-white);
+}
 
 #work h3 {
   font-weight: var(--weight-bold);
@@ -546,7 +567,7 @@ button {
 /* Contact */
 
 #contact {
-  background-color: var(--color-dark-green);
+  background-color: var(--color-black);
   display: flex;
   flex-direction: column;
 }
@@ -587,9 +608,9 @@ button {
   position: fixed;
   right: 50px;
   bottom: 50px;
-  font-size: 50px;
+  font-size: 45px;
   color: var(--color-white);
-  background-color: var(--color-dark-green);
+  background-color: var(--color-black);
   width: 60px;
   height: 60px;
   text-align: center;
