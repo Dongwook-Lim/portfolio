@@ -14,11 +14,11 @@
 
   --color-theme: #596187;
 
-  --color-html: #e04d1d;
-  --color-css: #0177bd;
-  --color-scss: #cd6699;
-  --color-javascript: #efdb4f;
-  --color-git: #f03c2d;
+  --color-html: #ec947b;
+  --color-css: #76abd6;
+  --color-scss: #e0a1bf;
+  --color-javascript: #f3e798;
+  --color-git: #f68c82;
 
   /* Font size */
   --font-large: 3.5rem;
@@ -70,13 +70,13 @@ ul {
 
 section {
   text-align: center;
-  padding: 100px 50px;
+  padding: 100px 100px;
 }
 
-.section__container {
+/* .section__container {
   max-width: 1200px;
   margin: auto;
-}
+} */
 
 /* Typography */
 
@@ -214,7 +214,7 @@ button {
 }
 
 .home__content {
-  margin-right: 8vw;
+  margin-right: 50px;
   width: 550px;
   text-align: left;
 }
@@ -325,22 +325,14 @@ button {
   justify-content: space-around;
 }
 
-/* @keyframes animate {
-  100% {
-    transform: scaleX(1);
-  }
-} */
-
 .tech-stack-bars .progress-line {
   position: relative;
   border-radius: 10px;
   width: 100%;
   height: 10px;
   background-color: var(--color-light-white);
-  /* transition: all 1s forwards;
-  animation: animate 1s forwards;
-  transform: scaleX(0);
-  transform-origin: left; */
+  transition: all 800ms linear;
+  transform-origin: left;
 }
 
 .tech-stack-bars .progress-line span {
@@ -348,11 +340,8 @@ button {
   left: 0;
   border-radius: 10px;
   height: 100%;
-  opacity: 0.6;
-  /* animation: animate 1s 1s forwards;
-  transition: all 1s 1s forwards;
-  transform: scaleX(0);
-  transform-origin: left; */
+  transition: all 1s 1s linear;
+  transform-origin: left;
 }
 
 .tech-stack-bars .progress-line.html span {

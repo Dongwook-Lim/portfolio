@@ -33,6 +33,13 @@ const homeContainerTop = homeContainer.offsetTop;
 const homeTechStack = document.querySelector('.home__tech-stack');
 const techStackIcons = document.querySelector('.tech-stack-icons');
 
+const progressLine = document.querySelectorAll('.progress-line');
+const progressLineSpan = document.querySelectorAll('.progress-line span');
+
+console.log(progressLineSpan);
+
+console.log(progressLine);
+
 document.addEventListener('scroll', () => {
   const scroll = window.scrollY;
   homeContainer.style.opacity = 1 - scroll / homeContainerHeight;
@@ -42,12 +49,28 @@ document.addEventListener('scroll', () => {
 
     techStackIcons.style.transform = 'translateX(0px)';
     techStackIcons.style.opacity = 1;
+
+    progressLine.forEach((line) => {
+      line.style.transform = 'scaleX(1)';
+    });
+
+    progressLineSpan.forEach((line) => {
+      line.style.transform = 'scaleX(1)';
+    });
   } else {
     homeTechStack.style.transform = 'translateY(0px)';
     homeTechStack.style.opacity = 1;
 
     techStackIcons.style.transform = 'translateX(-50px)';
     techStackIcons.style.opacity = 0;
+
+    progressLine.forEach((line) => {
+      line.style.transform = 'scaleX(0)';
+    });
+
+    progressLineSpan.forEach((line) => {
+      line.style.transform = 'scaleX(0)';
+    });
   }
 });
 
