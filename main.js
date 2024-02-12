@@ -36,9 +36,9 @@ const techStackIcons = document.querySelector('.tech-stack-icons');
 const progressLine = document.querySelectorAll('.progress-line');
 const progressLineSpan = document.querySelectorAll('.progress-line span');
 
-console.log(progressLineSpan);
-
-console.log(progressLine);
+const techStackPercentage = document.querySelectorAll(
+  '.tech-stack-percentage h3'
+);
 
 document.addEventListener('scroll', () => {
   const scroll = window.scrollY;
@@ -57,6 +57,10 @@ document.addEventListener('scroll', () => {
     progressLineSpan.forEach((line) => {
       line.style.transform = 'scaleX(1)';
     });
+
+    techStackPercentage.forEach((text) => {
+      text.style.opacity = 1;
+    });
   } else {
     homeTechStack.style.transform = 'translateY(0px)';
     homeTechStack.style.opacity = 1;
@@ -70,6 +74,10 @@ document.addEventListener('scroll', () => {
 
     progressLineSpan.forEach((line) => {
       line.style.transform = 'scaleX(0)';
+    });
+
+    techStackPercentage.forEach((text) => {
+      text.style.opacity = 0;
     });
   }
 });

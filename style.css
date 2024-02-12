@@ -12,13 +12,13 @@
   --color-grey: #616161;
   --color-light-grey: #7c7979;
 
-  --color-theme: #596187;
+  --color-theme: #ed9a2a;
 
-  --color-html: #ec947b;
-  --color-css: #76abd6;
-  --color-scss: #e0a1bf;
-  --color-javascript: #f3e798;
-  --color-git: #f68c82;
+  --color-html: #e04d1d;
+  --color-css: #0177bd;
+  --color-scss: #cd6699;
+  --color-javascript: #efdb4f;
+  --color-git: #f03c2d;
 
   /* Font size */
   --font-large: 3.5rem;
@@ -44,6 +44,7 @@
   /* Animation */
   --animation-duration: 300ms;
   --animation-long-duration: 600ms;
+  --animation-longer-duration: 1000ms;
 }
 
 /* Universal tags */
@@ -70,20 +71,15 @@ ul {
 
 section {
   text-align: center;
-  padding: 100px 100px;
+  padding: 100px 70px;
 }
-
-/* .section__container {
-  max-width: 1200px;
-  margin: auto;
-} */
 
 /* Typography */
 
 h1 {
   font-size: var(--font-large);
   font-weight: var(--weight-bold);
-  line-height: 100%;
+  line-height: 120%;
   color: var(--color-black);
   margin: 16px 0;
 }
@@ -167,6 +163,7 @@ button {
 
 .navbar__menu__item.active {
   transform: translateY(-8px);
+  color: var(--color-theme);
 }
 
 .navbar__toggle-btn {
@@ -245,7 +242,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all var(--animation-long-duration) ease;
+  transition: all var(--animation-longer-duration) ease;
 }
 
 .home__tech-stack h3 {
@@ -284,6 +281,7 @@ button {
 .about__content {
   width: 50%;
   text-align: left;
+  padding-right: 50px;
 }
 
 .about__title {
@@ -303,15 +301,14 @@ button {
   display: flex;
   justify-content: space-around;
   width: 50%;
-  margin-left: 40px;
 }
 
 .tech-stack-icons {
-  width: 20%;
+  width: 15%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: all var(--animation-long-duration) ease;
+  transition: all var(--animation-longer-duration) ease;
 }
 
 .tech-stack-icons img {
@@ -319,7 +316,7 @@ button {
 }
 
 .tech-stack-bars {
-  width: 80%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -340,12 +337,13 @@ button {
   left: 0;
   border-radius: 10px;
   height: 100%;
-  transition: all 1s 1s linear;
+  transition: all var(--animation-longer-duration) linear 1s;
   transform-origin: left;
+  opacity: 0.6;
 }
 
 .tech-stack-bars .progress-line.html span {
-  width: 90%;
+  width: 88%;
   background-color: var(--color-html);
 }
 
@@ -369,6 +367,39 @@ button {
   background-color: var(--color-git);
 }
 
+.tech-stack-percentage {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.tech-stack-percentage h3 {
+  font-size: var(--font-small);
+  font-weight: var(--weight-semi-bold);
+  transition: all var(--animation-longer-duration) linear 1s;
+}
+
+.tech-stack-percentage .html {
+  color: var(--color-html);
+}
+
+.tech-stack-percentage .css {
+  color: var(--color-css);
+}
+
+.tech-stack-percentage .scss {
+  color: var(--color-scss);
+}
+
+.tech-stack-percentage .javascript {
+  color: var(--color-javascript);
+}
+
+.tech-stack-percentage .git {
+  color: var(--color-git);
+}
+
 /* Projects */
 
 #project {
@@ -378,6 +409,63 @@ button {
 /* Contact */
 
 #contact {
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.contact__description {
+  font-weight: var(--weight-bold);
+  font-size: var(--font-medium);
+}
+
+.contact__container {
+  margin-top: 40px;
+}
+
+.contact__container,
+.contact__location,
+.contact__mail {
+  display: flex;
+  align-items: center;
+}
+
+.location-content,
+.mail-content {
+  text-align: left;
+}
+
+.location-content {
+  margin-right: 50px;
+}
+
+.contact__container span {
+  padding: 25px 25px 13px 25px;
+  color: var(--color-theme);
+}
+
+.contact__container h3 {
+  font-size: var(--font-small);
+  font-weight: var(--weight-semi-bold);
+  margin: 5px 0;
+}
+
+.contact__container a {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-regular);
+  color: var(--color-light-grey);
+  transition: all var(--animation-duration) ease;
+}
+
+.contact__container a:hover {
+  color: var(--color-theme);
+  cursor: pointer;
+}
+
+/* Footer */
+
+#footer {
   background-color: var(--color-black);
   display: flex;
   justify-content: space-between;
@@ -385,18 +473,18 @@ button {
   padding: 50px 50px;
 }
 
-#contact h1 {
+#footer h1 {
   color: var(--color-white);
   font-size: var(--font-small);
   font-weight: var(--weight-semi-bold);
 }
 
-.contact__github-icon {
+.footer__github-icon {
   color: var(--color-white);
   transition: all var(--animation-duration) ease;
 }
 
-.contact__github-icon:hover {
+.footer__github-icon:hover {
   transform: scale(1.2);
 }
 
