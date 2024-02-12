@@ -35,7 +35,7 @@
 
   /* Size */
   --size-border-radius: 4px;
-  --size-avatar: 300px;
+  --size-avatar: 330px;
   --size-major: 250px;
   --size-major-icon-outline: 170px;
   --size-major-icon: 70px;
@@ -70,8 +70,12 @@ ul {
 }
 
 section {
-  text-align: center;
-  padding: 100px 70px;
+  padding: 100px 50px;
+}
+
+.section__container {
+  max-width: 1000px;
+  margin: auto;
 }
 
 /* Typography */
@@ -185,17 +189,20 @@ button {
 /* Home */
 
 #home {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: var(--color-light-white);
   padding-top: 150px;
   height: 100vh;
 }
 
 .home__container {
-  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__profile {
+  width: 100%;
   display: flex;
   justify-content: center;
   margin-bottom: 80px;
@@ -206,18 +213,36 @@ button {
   width: var(--size-avatar);
   height: var(--size-avatar);
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
   border: 3px solid var(--color-black);
+  animation: morph 6s ease-in-out infinite;
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
 }
 
 .home__content {
   margin-right: 50px;
-  width: 550px;
+  width: 60%;
   text-align: left;
 }
 
 .home__content h1 {
+  max-width: 550px;
   height: 130px;
+}
+
+.home__content h3 {
+  max-width: 500px;
 }
 
 .typed-cursor {
@@ -410,6 +435,9 @@ button {
 
 #contact {
   background-color: var(--color-white);
+}
+
+.contact__container {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -420,11 +448,11 @@ button {
   font-size: var(--font-medium);
 }
 
-.contact__container {
+.contact__content {
   margin-top: 40px;
 }
 
-.contact__container,
+.contact__content,
 .contact__location,
 .contact__mail {
   display: flex;
@@ -440,25 +468,25 @@ button {
   margin-right: 50px;
 }
 
-.contact__container span {
+.contact__content span {
   padding: 25px 25px 13px 25px;
   color: var(--color-theme);
 }
 
-.contact__container h3 {
+.contact__content h3 {
   font-size: var(--font-small);
   font-weight: var(--weight-semi-bold);
   margin: 5px 0;
 }
 
-.contact__container a {
+.contact__content a {
   font-size: var(--font-regular);
   font-weight: var(--weight-regular);
   color: var(--color-light-grey);
   transition: all var(--animation-duration) ease;
 }
 
-.contact__container a:hover {
+.contact__content a:hover {
   color: var(--color-theme);
   cursor: pointer;
 }
@@ -467,10 +495,13 @@ button {
 
 #footer {
   background-color: var(--color-black);
+}
+
+.footer__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 50px 50px;
+  padding: 50px 0;
 }
 
 #footer h1 {
