@@ -1,19 +1,7 @@
 'use strict';
 
-// Make navbar transparent when in is on the top
-// const navbar = document.querySelector('#navbar');
-// const navbarHeight = navbar.getBoundingClientRect().height;
-
-// document.addEventListener('scroll', () => {
-//   if (window.scrollY > navbarHeight) {
-//     navbar.classList.add('navbar--dark');
-//   } else {
-//     navbar.classList.remove('navbar--dark');
-//   }
-// });
-
 // Typing Animation
-var typed = new Typed('.home__title', {
+var typed = new Typed('.typing-animation', {
   strings: ["I'm Leon Lim ✨", 'A Front-end Web Developer ⭐️'],
   typeSpeed: 70,
   backSpeed: 40,
@@ -26,9 +14,10 @@ var typed = new Typed('.home__title', {
 const nav = document.querySelector('#navbar');
 const navbarHeight = nav.offsetHeight;
 
-const homeContent = document.querySelector('.home__content');
-const homeContentHeight = homeContent.offsetHeight;
-const homeContentTop = homeContent.offsetTop;
+const homeProfile = document.querySelector('.home__profile');
+const home = document.querySelector('#home');
+const homeProfileHeight = homeProfile.offsetHeight;
+const homeHeight = home.offsetHeight;
 
 const homeTechStack = document.querySelector('.home__tech-stack');
 const techStackIcons = document.querySelector('.tech-stack-icons');
@@ -40,10 +29,13 @@ const techStackPercentage = document.querySelectorAll(
   '.tech-stack-percentage h3'
 );
 
+console.log((homeHeight * 2) / 3);
+console.log(homeProfileHeight);
+
 document.addEventListener('scroll', () => {
   const scroll = window.scrollY;
-  homeContent.style.opacity = 1 - scroll / homeContentHeight;
-  if (scroll >= homeContentHeight + homeContentTop - navbarHeight) {
+  homeProfile.style.opacity = 1 - scroll / homeProfileHeight;
+  if (scroll >= (homeHeight * 2) / 3) {
     homeTechStack.style.transform = 'translateY(50px)';
     homeTechStack.style.opacity = 0;
 
@@ -84,6 +76,23 @@ document.addEventListener('scroll', () => {
 
 // Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
+const mobileNav = document.querySelector('.mobile__nav');
+const cancelBtn = document.querySelector('.cancel-btn');
+
+mobileNav.addEventListener('click', (event) => {
+  const target = event.target;
+  const link = target.dataset.link;
+
+  if (link == null) {
+    return;
+  }
+
+  // Remove the toggle menu bar when clicked
+  mobileNav.classList.remove('open');
+  mobileNav.classList.add('close');
+
+  scrollIntoView(link);
+});
 
 navbarMenu.addEventListener('click', (event) => {
   const target = event.target;
@@ -93,9 +102,6 @@ navbarMenu.addEventListener('click', (event) => {
     return;
   }
 
-  // Remove the toggle menu bar when clicked
-  navbarMenu.classList.remove('open');
-
   scrollIntoView(link);
 });
 
@@ -103,7 +109,14 @@ navbarMenu.addEventListener('click', (event) => {
 const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
 
 navbarToggleBtn.addEventListener('click', () => {
-  navbarMenu.classList.toggle('open');
+  mobileNav.classList.add('open');
+  mobileNav.classList.remove('close');
+});
+
+// Handle clicking cancel button
+cancelBtn.addEventListener('click', () => {
+  mobileNav.classList.remove('open');
+  mobileNav.classList.add('close');
 });
 
 // Handle click on logo on navbar
@@ -112,55 +125,6 @@ const navbarLogo = document.querySelector('.navbar__logo');
 navbarLogo.addEventListener('click', () => {
   scrollIntoView('home');
 });
-
-// Show "arrow up" button when scrolling up
-const arrowUpBtn = document.querySelector('.arrow-up-btn');
-
-document.addEventListener('scroll', () => {
-  if (window.scrollY > homeContentHeight / 2) {
-    arrowUpBtn.classList.add('visible');
-  } else {
-    arrowUpBtn.classList.remove('visible');
-  }
-});
-
-// Handle click on the "arrow up" button
-arrowUpBtn.addEventListener('click', () => {
-  scrollIntoView('home');
-});
-
-// // Projects
-// const categoryBtnContainer = document.querySelector('.work__categories');
-// const projectContainer = document.querySelector('.work__projects');
-// const projects = document.querySelectorAll('.project');
-
-// categoryBtnContainer.addEventListener('click', (event) => {
-//   const filter =
-//     event.target.dataset.filter || event.target.parentNode.dataset.filter;
-//   if (filter == null) {
-//     return;
-//   }
-
-//   projectContainer.classList.add('anim-out');
-
-//   setTimeout(() => {
-//     projectContainer.classList.remove('anim-out');
-//     projects.forEach((project) => {
-//       if (filter === 'all' || filter === project.dataset.type) {
-//         project.classList.remove('invisible');
-//       } else {
-//         project.classList.add('invisible');
-//       }
-//     });
-//   }, 300);
-
-//   // Remove selection from the previous item and select the new one
-//   const active = document.querySelector('.category__btn.selected');
-//   active.classList.remove('selected');
-//   const target =
-//     event.target.nodeName === 'BUTTON' ? event.target : event.target.parentNode;
-//   target.classList.add('selected');
-// });
 
 // Active selected menu item when scrolled to specific section
 // 1. 모든 섹션 요소들과 메뉴아이템들을 가지고 온다

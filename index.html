@@ -42,16 +42,60 @@
 
       <!-- Toggle button -->
       <div class="navbar__toggle-btn">
-        <i class="fa-solid fa-burger"></i>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="mobile-menu"
+        >
+          <path d="M4 6l16 0"></path>
+          <path d="M4 12l16 0"></path>
+          <path d="M4 18l16 0"></path>
+        </svg>
       </div>
     </nav>
+
+    <!-- Mobile Navbar -->
+    <div class="mobile__nav close">
+      <span class="cancel-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="tabler-icon tabler-icon-x"
+        >
+          <path d="M18 6l-12 12"></path>
+          <path d="M6 6l12 12"></path>
+        </svg>
+      </span>
+      <ul>
+        <li data-link="home">Home</li>
+        <li data-link="about">About</li>
+        <li data-link="project">Projects</li>
+        <li data-link="contact">Contact</li>
+      </ul>
+    </div>
 
     <!-- Home -->
     <section id="home">
       <div class="home__container section__container">
         <div class="home__profile">
           <div class="home__content">
-            <h1><span class="home__title"></span></h1>
+            <div class="home__title">
+              <span class="typing-animation"></span>
+            </div>
             <h3 class="home__description">
               Hi, I'm Leon Lim. A Front-end Web Developer who is passionate
               about interactive designs. 🎨
@@ -75,11 +119,7 @@
               </svg>
             </a>
           </div>
-          <img
-            src="imgs/profile.jpg"
-            alt="Leon's profile photo"
-            class="home__avatar"
-          />
+          <div class="home__avatar"></div>
         </div>
         <div class="home__tech-stack">
           <h3>Tech Stack</h3>
@@ -254,10 +294,5 @@
         </div>
       </div>
     </footer>
-
-    <!-- Arrow up button -->
-    <buttton class="arrow-up-btn">
-      <i class="fa-solid fa-chevron-up"></i>
-    </buttton>
   </body>
 </html>
