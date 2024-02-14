@@ -16,7 +16,7 @@ const navbarHeight = nav.offsetHeight;
 
 const homeProfile = document.querySelector('.home__profile');
 const home = document.querySelector('#home');
-const homeProfileHeight = homeProfile.offsetHeight;
+const homeProfileHeight = homeProfile.clientHeight;
 const homeHeight = home.offsetHeight;
 
 const homeTechStack = document.querySelector('.home__tech-stack');
@@ -29,8 +29,9 @@ const techStackPercentage = document.querySelectorAll(
   '.tech-stack-percentage h3'
 );
 
-console.log((homeHeight * 2) / 3);
+console.log(homeHeight);
 console.log(homeProfileHeight);
+console.log(scroll);
 
 document.addEventListener('scroll', () => {
   const scroll = window.scrollY;

@@ -249,8 +249,6 @@ button {
 
 #home {
   background-color: var(--color-light-white);
-  padding-top: 9rem;
-  height: 110vh;
 }
 
 .home__container {
@@ -281,7 +279,7 @@ button {
 }
 
 .home__avatar {
-  background-image: url(/imgs/profile.jpg);
+  background-image: url(https://dongwook-lim.github.io/portfolio/imgs/profile.jpg);
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -358,7 +356,6 @@ button {
 
 #about {
   background-color: var(--color-white);
-  height: 80vh;
 }
 
 .about__container {
@@ -401,7 +398,7 @@ button {
 }
 
 .tech-stack-bars {
-  width: 75%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -491,7 +488,6 @@ button {
 
 #project {
   background-color: var(--color-light-white);
-  height: 75vh;
 }
 
 @keyframes rotate {
@@ -621,7 +617,6 @@ button {
 
   #home {
     padding-top: 7rem;
-    height: 130vh;
   }
 
   .home__profile {
@@ -668,10 +663,6 @@ button {
     padding: 0.5rem;
   }
 
-  #about {
-    height: 120vh;
-  }
-
   .about__container {
     flex-direction: column-reverse;
   }
@@ -713,7 +704,38 @@ button {
 
 @media screen and (max-width: 700px) {
   #navbar {
-    padding: 0.5rem 1.5rem;
+    padding: 0.3rem 1.3rem;
+  }
+
+  .navbar__logo {
+    font-size: var(--font-regular);
+  }
+
+  .home__avatar {
+    width: 18rem;
+    height: 18rem;
+  }
+
+  .home__title {
+    font-size: var(--font-medium-large);
+    height: 6rem;
+  }
+
+  .home__description {
+    font-size: var(--font-small);
+  }
+
+  .about__title {
+    font-size: var(--font-medium);
+  }
+
+  .about__description {
+    font-size: var(--font-micro);
+    width: 15rem;
+  }
+
+  .tech-stack-percentage {
+    padding-left: 0;
   }
 
   .contact__content,
