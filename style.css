@@ -734,8 +734,19 @@ button {
     width: 15rem;
   }
 
+  .about__tech-stack {
+    width: 100%;
+  }
+
+  .tech-stack-icons {
+    width: 20%;
+  }
+  .tech-stack-bars {
+    width: 65%;
+  }
+
   .tech-stack-percentage {
-    padding-left: 0;
+    width: 15%;
   }
 
   .contact__content,
