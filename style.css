@@ -144,7 +144,7 @@ button {
 .navbar__logo {
   font-size: var(--font-medium);
   font-weight: var(--weight-bold);
-  padding: 0.5rem 0.5rem 0.7rem 0.7rem;
+  padding: 0.5rem;
   animation: floating 2s linear infinite;
 }
 
@@ -346,7 +346,7 @@ button {
 
 .tech-stack-box img {
   transition: all var(--animation-duration) ease;
-  padding: 0 15px;
+  padding: 1rem;
 }
 
 .tech-stack-box img:hover {
@@ -664,6 +664,10 @@ button {
     margin: 0;
   }
 
+  .tech-stack-box img {
+    padding: 0.5rem;
+  }
+
   #about {
     height: 120vh;
   }
@@ -708,6 +712,10 @@ button {
 }
 
 @media screen and (max-width: 700px) {
+  #navbar {
+    padding: 0.5rem 1.5rem;
+  }
+
   .contact__content,
   .contact__location,
   .contact__mail {
@@ -722,5 +730,13 @@ button {
 
   .contact__mail {
     margin: 2rem 0 1rem 0;
+  }
+
+  footer {
+    padding: 2rem 1.5rem;
+  }
+
+  #footer h1 {
+    font-size: var(--font-micro);
   }
 }
