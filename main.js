@@ -26,9 +26,9 @@ var typed = new Typed('.home__title', {
 const nav = document.querySelector('#navbar');
 const navbarHeight = nav.offsetHeight;
 
-const homeContainer = document.querySelector('.home__container');
-const homeContainerHeight = homeContainer.offsetHeight;
-const homeContainerTop = homeContainer.offsetTop;
+const homeContent = document.querySelector('.home__content');
+const homeContentHeight = homeContent.offsetHeight;
+const homeContentTop = homeContent.offsetTop;
 
 const homeTechStack = document.querySelector('.home__tech-stack');
 const techStackIcons = document.querySelector('.tech-stack-icons');
@@ -42,8 +42,8 @@ const techStackPercentage = document.querySelectorAll(
 
 document.addEventListener('scroll', () => {
   const scroll = window.scrollY;
-  homeContainer.style.opacity = 1 - scroll / homeContainerHeight;
-  if (scroll >= homeContainerHeight + homeContainerTop - navbarHeight) {
+  homeContent.style.opacity = 1 - scroll / homeContentHeight;
+  if (scroll >= homeContentHeight + homeContentTop - navbarHeight) {
     homeTechStack.style.transform = 'translateY(50px)';
     homeTechStack.style.opacity = 0;
 
@@ -117,7 +117,7 @@ navbarLogo.addEventListener('click', () => {
 const arrowUpBtn = document.querySelector('.arrow-up-btn');
 
 document.addEventListener('scroll', () => {
-  if (window.scrollY > homeContainerHeight / 2) {
+  if (window.scrollY > homeContentHeight / 2) {
     arrowUpBtn.classList.add('visible');
   } else {
     arrowUpBtn.classList.remove('visible');
