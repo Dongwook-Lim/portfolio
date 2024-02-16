@@ -2,7 +2,7 @@
 
 // Typing Animation
 var typed = new Typed('.typing-animation', {
-  strings: ["I'm Leon Lim ✨", 'A Front-end Web Developer ⭐️'],
+  strings: ['Front-end <br> Developer Crazy <br> about Details ⭐️'],
   typeSpeed: 70,
   backSpeed: 40,
   backDelay: 1000,
@@ -28,10 +28,6 @@ const progressLineSpan = document.querySelectorAll('.progress-line span');
 const techStackPercentage = document.querySelectorAll(
   '.tech-stack-percentage h3'
 );
-
-console.log(homeHeight);
-console.log(homeProfileHeight);
-console.log(scroll);
 
 document.addEventListener('scroll', () => {
   const scroll = window.scrollY;

@@ -297,8 +297,8 @@ button {
 }
 
 .home__title {
-  max-width: 35rem;
-  height: 10rem;
+  max-width: 34rem;
+  height: 13rem;
   font-size: var(--font-large);
   font-weight: var(--weight-bold);
   line-height: 110%;
@@ -371,7 +371,7 @@ button {
 }
 
 .about__title {
-  font-size: var(--font-medium-large);
+  font-size: var(--font-medium);
   margin: 2rem 0;
 }
 
@@ -425,22 +425,22 @@ button {
 }
 
 .tech-stack-bars .progress-line.html span {
-  width: 88%;
+  width: 70%;
   background-color: var(--color-html);
 }
 
 .tech-stack-bars .progress-line.css span {
-  width: 90%;
+  width: 78%;
   background-color: var(--color-css);
 }
 
 .tech-stack-bars .progress-line.scss span {
-  width: 70%;
+  width: 69%;
   background-color: var(--color-scss);
 }
 
 .tech-stack-bars .progress-line.javascript span {
-  width: 80%;
+  width: 65%;
   background-color: var(--color-javascript);
 }
 
@@ -635,10 +635,6 @@ button {
     padding-right: 0;
   }
 
-  .home__title {
-    margin-bottom: 0;
-  }
-
   .home__description {
     margin: 0 0 1rem 0;
   }
@@ -718,7 +714,7 @@ button {
 
   .home__title {
     font-size: var(--font-medium-large);
-    height: 6rem;
+    height: 8rem;
   }
 
   .home__description {
@@ -730,7 +726,6 @@ button {
   }
 
   .about__description {
-    font-size: var(--font-micro);
     width: 15rem;
   }
 
