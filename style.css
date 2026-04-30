@@ -345,6 +345,9 @@ button {
 .tech-stack-box img {
   transition: all var(--animation-duration) ease;
   padding: 1rem;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
 }
 
 .tech-stack-box img:hover {
@@ -395,6 +398,9 @@ button {
 
 .tech-stack-icons img {
   margin: 1rem 1rem 1rem 0;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
 }
 
 .tech-stack-bars {
@@ -657,6 +663,8 @@ button {
 
   .tech-stack-box img {
     padding: 0.5rem;
+    width: 38px;
+    height: 38px;
   }
 
   .about__container {
