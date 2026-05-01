@@ -9,6 +9,66 @@ var typed = new Typed('.typing-animation', {
   loop: true,
 });
 
+// Projects section
+const projectList = document.querySelector('.project__list');
+const projectSlugs = [
+  'wonhundred',
+  'beige',
+  'canalstreet',
+  'rodicdavison',
+  'schwartz',
+  'tolv',
+  'zoo',
+];
+
+if (projectList) {
+  const projectMarkup = projectSlugs
+    .map((slug, index) => {
+      const directionClass = index % 2 === 0 ? 'from-left' : 'from-right';
+      const projectName = slug.replace(/-/g, ' ');
+
+      return `
+        <article class="project__item ${directionClass}">
+          <a class="project__link" href="https://dongwook-lim.github.io/${slug}-clone-coding/" target="_blank" rel="noopener noreferrer">
+            <img
+              class="project__thumbnail"
+              src="imgs/projects/${slug}.png"
+              alt="${projectName} project preview"
+              loading="lazy"
+            />
+            <div class="project__meta">
+              <h3 class="project__name">${projectName}</h3>
+              <p class="project__visit">Visit Site</p>
+            </div>
+          </a>
+        </article>
+      `;
+    })
+    .join('');
+
+  projectList.innerHTML = projectMarkup;
+
+  const projectItems = document.querySelectorAll('.project__item');
+  const projectObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0.25,
+      rootMargin: '-5% 0px -5% 0px',
+    },
+  );
+
+  projectItems.forEach((item) => projectObserver.observe(item));
+}
+
 // Make home slowly fade to transparent when the window scrolls down
 // Make tech stack icons disappear and appear
 const nav = document.querySelector('#navbar');
