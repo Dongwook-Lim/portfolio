@@ -32,7 +32,7 @@ if (projectList) {
           <a class="project__link" href="https://dongwook-lim.github.io/${slug}-clone-coding/" target="_blank" rel="noopener noreferrer">
             <img
               class="project__thumbnail"
-              src="imgs/projects/${slug}.png"
+              src="imgs/projects/${slug}.jpg"
               alt="${projectName} project preview"
               loading="lazy"
             />
